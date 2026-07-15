@@ -1,0 +1,136 @@
+BoxLayout:
+    orientation: "vertical"
+    spacing: 15
+    padding: 20
+
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.96, 0.98, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Label:
+        text: "STUDENT STUDY PLANNER"
+        size_hint_y: None
+        height: 60
+        font_size: "22sp"
+        bold: True
+        color: 0.1,0.2,0.5,1
+
+    BoxLayout:
+        size_hint_y: None
+        height: 60
+        spacing: 10
+
+        Label:
+            id: total_tasks
+            text: "Total\n0"
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            color: 1,1,1,1
+            bold: True
+
+            canvas.before:
+                Color:
+                    rgba: 0.2,0.45,0.9,1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+        Label:
+            id: completed_tasks
+            text: "Completed\n0"
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            color: 1,1,1,1
+            bold: True
+
+            canvas.before:
+                Color:
+                    rgba: 0.18,0.7,0.32,1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+        Label:
+            id: pending_tasks
+            text: "Pending\n0"
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            color: 1,1,1,1
+            bold: True
+
+            canvas.before:
+                Color:
+                    rgba: 1,0.6,0,1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [20]
+
+    TextInput:
+        id: task_name
+        hint_text: "Enter Task Name"
+        multiline: False
+        size_hint_y: None
+        height: 48
+        font_size: "16sp"
+
+    TextInput:
+        id: subject_name
+        hint_text: "Enter Subject"
+        multiline: False
+        size_hint_y: None
+        height: 48
+        font_size: "16sp"
+
+    Spinner:
+        id: priority
+        text: "Select Priority"
+        values: ("High","Medium","Low")
+        size_hint_y: None
+        height: 48
+
+        background_normal: ""
+        background_color: 0.18,0.47,0.85,1
+        color: 1,1,1,1
+        font_size: "16sp"
+
+    TextInput:
+        id: due_date
+        hint_text: "Due Date (DD-MM-YYYY)"
+        multiline: False
+        size_hint_y: None
+        height: 48
+        font_size: "16sp"
+
+    Button:
+        text: "Add Task"
+        size_hint_y: None
+        height: 55
+
+        background_normal: ""
+        background_color: 0.2,0.75,0.3,1
+        color: 1,1,1,1
+
+        bold: True
+        font_size: "18sp"
+
+        on_press:
+            app.add_task()
+
+    ScrollView:
+
+        GridLayout:
+            id: task_list
+            cols: 1
+            spacing: 10
+            padding: 5
+            size_hint_y: None
+            height: self.minimum_height

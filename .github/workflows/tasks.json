@@ -1,0 +1,23 @@
+[
+    {
+        "task": "homework",
+        "subject": "mathematics",
+        "priority": "Medium",
+        "due_date": "04-07-2026",
+        "completed": false
+    },
+    {
+        "task": "homework",
+        "subject": "maths",
+        "priority": "High",
+        "due_date": "03-07-26",
+        "completed": false
+    },
+    {
+        "task": "homework",
+        "subject": "english",
+        "priority": "Medium",
+        "due_date": "02-07-26",
+        "completed": true
+    }
+]
